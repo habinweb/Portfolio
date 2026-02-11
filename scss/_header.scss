@@ -1,0 +1,288 @@
+@use "mixin" as m;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap");
+
+/* =========================
+   Global
+========================= */
+body {
+  background: var(--color-bg);
+  overflow-x: hidden;
+  font-family:
+    "Noto Sans KR",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+li,
+dt,
+dd {
+  color: var(--color-text);
+}
+
+/* =========================
+   Top Button
+========================= */
+.btn-top {
+  opacity: 0;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 32px;
+  height: 40px;
+  background: var(--color-back);
+  border: none;
+  border-radius: 50px;
+  backdrop-filter: blur(15px);
+  pointer-events: none;
+  transition: all 0.5s ease;
+  z-index: 40;
+
+  &:hover {
+    border-radius: 5px;
+  }
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+}
+
+.top-txt {
+  display: inline-block;
+  font-size: 1.7rem;
+  color: var(--color-bg);
+  animation: upDown 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================
+   Header
+========================= */
+#header {
+  width: 100%;
+
+  position: fixed;
+  z-index: 50;
+  background: var(--color-bg-trans);
+  backdrop-filter: blur(20px);
+  height: 80px;
+
+  @include m.flex-center;
+
+  .header-box {
+    @include m.flex-center;
+    align-items: center;
+    width: 90%;
+
+    .tag {
+      font-size: 1.1rem;
+    }
+  }
+
+  @include m.tablet {
+    .tag {
+      font-size: 1rem;
+    }
+  }
+
+  @include m.mobile {
+    height: 70px;
+
+    .header-box {
+      margin: 0.8rem auto;
+      .tag {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+/* =========================
+   Menu
+========================= */
+.menu {
+  width: 100%;
+  z-index: 10;
+
+  .menu-box {
+    width: 100%;
+    @include m.flex;
+    justify-content: end;
+    gap: 1.5rem; /* PC 기본을 넉넉하게 */
+    font-size: 1rem;
+
+    .menu-title {
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+      @include m.effect;
+
+      &.aboutme {
+        @include m.mobile {
+          display: none;
+        }
+      }
+      &:hover {
+        font-weight: 900;
+      }
+    }
+  }
+
+  @include m.tablet {
+    .menu-box {
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @include m.mobile {
+    .menu-box {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* =========================
+   Sub Menu Box
+========================= */
+.sub-box {
+  position: absolute;
+  color: inherit;
+  left: -2rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  @include m.effect;
+  background: var(--color-card);
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+  border-radius: 20px;
+  box-shadow: 1px 1px 20px #00000020;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sub-title {
+    font-weight: 700;
+    @include m.effect;
+    margin-bottom: 2rem;
+
+    &:hover {
+      transform: scale(1.05);
+      color: black;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* 작은 화면에서 드롭다운이 화면 밖으로 튀는 거 방지 */
+  @include m.mobile {
+    left: auto;
+    right: 0;
+    padding: 1.2rem 1.4rem;
+    border-radius: 16px;
+
+    .sub-title {
+      margin-bottom: 1.2rem;
+    }
+  }
+}
+
+.sub-title-d {
+  font-weight: 500;
+}
+
+.sub-sub {
+  margin-top: 1rem;
+  font-size: 1rem;
+
+  .sub-sub-a {
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+
+    & > a:hover {
+      font-weight: 700;
+      color: var(--color-point);
+    }
+  }
+
+  @include m.mobile {
+    font-size: 0.95rem;
+  }
+}
+
+/* =========================
+   Theme Toggle Button
+========================= */
+.modeBtn {
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 34px;
+  background: var(--color-back);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.modeBtn img {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.light-icon {
+  left: 4px;
+  z-index: 50;
+}
+
+.dark-icon {
+  right: 5px;
+  z-index: 50;
+}
+
+.indicator {
+  position: absolute;
+  z-index: 5;
+  width: 26px;
+  height: 26px;
+  background: var(--color-card);
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* 다크 모드일 때 indicator 이동 */
+:root[data-theme="dark"] .indicator {
+  transform: translateX(30px);
+}

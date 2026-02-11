@@ -1,0 +1,1070 @@
+@use "mixin" as m;
+@use "root";
+@use "fonts";
+
+/* ✅ PC-first: body는 .main-page 안에 둘 수 없음 (적용 안 됨) */
+body {
+  background: var(--color-bg);
+  overflow-x: hidden;
+}
+
+.main-page {
+  // 최상위 컨테이너
+  .main {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  /* =========================
+     HERO (PC 기본)
+  ========================= */
+
+  .hero {
+    position: relative;
+    width: 50vw;
+    aspect-ratio: 16 / 10;
+    @include m.center;
+    top: 50%;
+    cursor: pointer;
+
+    @include m.tablet {
+      width: 60vw;
+      aspect-ratio: 16 / 10;
+    }
+    @include m.mobile {
+      width: 70vw;
+      aspect-ratio: 16 / 11;
+    }
+  }
+
+  /* 앞쪽 이미지 (원근감) */
+  .hero .front {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    bottom: 0;
+
+    @include m.flex-center;
+    z-index: 3;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    @include m.mobile {
+      aspect-ratio: 14.5 / 7;
+    }
+  }
+
+  .hero .front::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    bottom: 0;
+    background: var(--color-front);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    transform-origin: bottom center;
+    transform: perspective(800px) rotateX(-10deg); // ✅ PC 기본 (기존 desktop)
+    z-index: 1;
+    box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.2);
+
+    @include m.mobile {
+      transform: perspective(700px) rotateX(-15deg);
+    }
+  }
+
+  /* 텍스트 박스 */
+  .profile-txt-box {
+    position: absolute;
+    width: 90%;
+    max-width: 960px;
+    aspect-ratio: 7.5 / 4; // ✅ PC 기본 (기존 desktop)
+    background: #f5f5f5;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 7.5%; // ✅ PC 기본 (기존 desktop)
+    z-index: 2;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
+
+    transform-style: preserve-3d;
+    transform-origin: center center;
+
+    @include m.tablet {
+      aspect-ratio: 7.5 / 4;
+      bottom: 6.5%;
+    }
+
+    @include m.mobile {
+      aspect-ratio: 7 / 4.2;
+      bottom: 6%;
+    }
+  }
+
+  // 메인 폴더에 마우스 올리거나 클릭했을 시
+  .hero.active .front {
+    transform: translateY(10vh);
+  }
+
+  .hero.active .profile-txt-box:not(.top) {
+    transform: translateX(-50%) translateY(-20%) rotate(5deg); // ✅ PC 기본 (기존 desktop)
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+
+    @include m.mobile {
+      transform: translateX(-50%) translateY(-40%) rotate(70deg) scale(1);
+    }
+  }
+
+  .hero.active .card-face.back2 {
+    visibility: hidden;
+  }
+  .hero.active .card-face.front2 {
+    visibility: visible;
+  }
+
+  // .hero.active 실행된 후 한번 더 클릭 시
+  .hero.active .profile-txt-box.top {
+    transform: translateZ(10px) translateX(-50%) scale(1.5); // ✅ PC 기본 (기존 desktop)
+    z-index: 10;
+
+    @include m.mobile {
+      transform: rotate(90deg) translateX(0%) translateY(85%) scale(1.5);
+    }
+  }
+
+  .profile-txt-box.top .card-face.front2 {
+    visibility: hidden;
+  }
+  .profile-txt-box.top .card-face.back2 {
+    visibility: visible;
+  }
+
+  /* PROFILE 텍스트 */
+  .profile {
+    position: absolute;
+    text-align: center;
+    top: -5px; // ✅ PC 기본 (기존 desktop)
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12vw; // ✅ PC 기본 (기존 desktop)
+    line-height: 1;
+    white-space: nowrap;
+    color: #111;
+
+    @include m.tablet {
+      top: -2px;
+      font-size: 14vw;
+    }
+    @include m.mobile {
+      letter-spacing: -0.08rem;
+      top: 7px;
+      font-size: 16.5vw;
+    }
+  }
+
+  .profile::after {
+    pointer-events: none;
+    position: absolute;
+    content: "💛";
+    display: block;
+    width: 100%;
+    left: -62%;
+    top: -30%;
+    bottom: 0;
+    transform: rotate(-15deg);
+    text-shadow: 1px 1px 30px #00000010;
+    @include m.floating(2.7s);
+    transition: transform 0.6s ease;
+  }
+
+  .profile::before {
+    pointer-events: none;
+    position: absolute;
+    content: "💥";
+    display: block;
+    width: 100%;
+    right: -65%;
+    top: 50%;
+    bottom: 0;
+    transform: rotate(-15deg);
+    text-shadow: 1px 1px 30px #00000010;
+    @include m.floating(2.8s);
+    transition: transform 0.6s ease;
+  }
+
+  .hero.active .profile::after {
+    animation: none;
+    transform: translateX(28%) translateY(75%) rotate(-15deg);
+    transition: transform 0.6s ease;
+  }
+
+  .hero.active .profile::before {
+    animation: none;
+    transform: translateX(-35%) rotate(-15deg);
+    transition: transform 0.6s ease;
+  }
+
+  .profile-me {
+    font-family: "Font01", cursive;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-60%);
+    padding-top: 2rem; // ✅ PC 기본 (기존 desktop)
+
+    @include m.tablet {
+      padding-top: 1.5rem;
+    }
+  }
+
+  // 카드 뒷부분 텍스트
+  .card-face.back2 {
+    visibility: hidden;
+    width: 90%; // ✅ PC 기본 (기존 desktop)
+    height: 100%;
+    margin: 0 auto; // ✅ PC 기본
+    transform: rotate(0); // ✅ PC 기본
+
+    @include m.mobile {
+      width: 50%;
+      margin: 0 1.5rem;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .profile-back-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 1rem; // ✅ PC 기본 (기존 desktop)
+    @include m.tablet {
+      padding-top: 0;
+    }
+  }
+
+  .profile-back-title {
+    display: flex; // ✅ PC 기본 (기존 desktop)
+    flex-direction: column;
+    @include m.mobile {
+      display: block;
+    }
+  }
+
+  .profile-back {
+    width: 100%;
+    display: flex;
+    flex-direction: row; // ✅ PC 기본 (기존 desktop)
+    justify-content: space-between;
+    color: #242424;
+
+    @include m.tablet {
+      margin-top: 1rem;
+    }
+
+    @include m.mobile {
+      margin-top: 0;
+      flex-direction: column;
+      padding-left: 0.2rem;
+    }
+  }
+
+  .profile-me-back {
+    color: #242424;
+    font-size: 3rem; // ✅ PC 기본 (기존 desktop)
+
+    @include m.tablet {
+      font-size: 4.3vw;
+    }
+    @include m.mobile {
+      font-size: 5vw;
+    }
+  }
+  .deco-icon-one {
+    position: relative;
+  }
+  .deco-icon-one::before {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    bottom: -50px;
+    left: -5px;
+    position: absolute;
+    background: url("/img/deco_fire.png") no-repeat center;
+    background-size: contain;
+    @include m.tablet {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: url("/img/deco_fire.png") no-repeat center;
+      background-size: contain;
+      bottom: -35px;
+      left: -5px;
+    }
+    @include m.mobile {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url("/img/deco_fire.png") no-repeat center;
+      background-size: contain;
+      top: 8px;
+      left: 65%;
+    }
+  }
+  .deco-icon-one::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    bottom: -50px;
+    left: 45px;
+    position: absolute;
+    background: url("/img/deco_twinkle.png") no-repeat center;
+    background-size: contain;
+    @include m.tablet {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: url("/img/deco_twinkle.png") no-repeat center;
+      background-size: contain;
+      bottom: -35px;
+      left: 40px;
+    }
+    @include m.mobile {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url("/img/deco_twinkle.png") no-repeat center;
+      background-size: contain;
+      top: 8px;
+      left: 80%;
+    }
+  }
+  .deco-icon-two {
+    position: relative;
+  }
+  .deco-icon-two::before {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    bottom: -50px;
+    left: 0;
+    position: absolute;
+    background: url("/img/deco_brain.png") no-repeat center;
+    background-size: contain;
+    @include m.tablet {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: url("/img/deco_brain.png") no-repeat center;
+      background-size: contain;
+      bottom: -35px;
+      left: 0;
+    }
+    @include m.mobile {
+      width: 1.5rem;
+      height: 1.2rem;
+      bottom: 8px;
+      left: 65%;
+      background: url("/img/deco_brain.png") no-repeat center;
+      background-size: contain;
+    }
+  }
+  .deco-icon-two::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    bottom: -50px;
+    left: 50px;
+    position: absolute;
+    background: url("/img/deco_tool.png") no-repeat center;
+    background-size: contain;
+    @include m.tablet {
+      width: 2.5rem;
+      height: 2.4rem;
+      background: url("/img/deco_tool.png") no-repeat center;
+      background-size: contain;
+      bottom: -35px;
+      left: 45px;
+    }
+    @include m.mobile {
+      width: 1.5rem;
+      height: 1.5rem;
+      bottom: 6px;
+      left: 82%;
+      background: url("/img/deco_tool.png") no-repeat center;
+      background-size: contain;
+    }
+  }
+  .deco-icon-three {
+    position: relative;
+  }
+  .deco-icon-three::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    bottom: -50px;
+    right: 0;
+    position: absolute;
+    background: url("/img/deco_spaceship.png") no-repeat center;
+    background-size: contain;
+    @include m.tablet {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: url("/img/deco_spaceship.png") no-repeat center;
+      background-size: contain;
+      bottom: -35px;
+      right: 0px;
+    }
+    @include m.mobile {
+      width: 1.5rem;
+      height: 1.5rem;
+      bottom: 6px;
+      background: url("/img/deco_spaceship.png") no-repeat center;
+      background-size: contain;
+    }
+  }
+
+  .picture {
+    width: 100%;
+    position: absolute;
+    bottom: 1.5rem;
+
+    @include m.tablet {
+      bottom: 1rem;
+    }
+
+    @include m.mobile {
+      bottom: -70px;
+    }
+  }
+  .picture-img {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    @include m.mobile {
+      width: 100%;
+    }
+  }
+  // .profile-back-more {
+  //   font-size: 3rem; // ✅ PC 기본 (기존 desktop)
+  //   width: 100%;
+  //   display: flex;
+  //   flex-direction: row; // ✅ PC 기본
+  //   justify-content: space-between;
+  //   margin-top: -2rem; // ✅ PC 기본
+  //   position: absolute;
+
+  //   @include m.tablet {
+  //     margin-top: -1.5rem;
+  //     font-size: 4.3vw;
+  //   }
+  //   @include m.mobile {
+  //     margin-top: 0rem;
+  //     top: 0;
+  //     right: 0px;
+  //     font-size: 5vw;
+  //     flex-direction: column;
+  //     align-items: end;
+  //   }
+  // }
+
+  // .profile-me-back-more {
+  //   font-size: 3rem; // ✅ PC 기본 (기존 desktop에서만 있었음)
+  //   text-shadow: 1px 2px 5px #31313120;
+
+  //   @include m.tablet {
+  //     font-size: inherit;
+  //   }
+  //   @include m.mobile {
+  //     font-size: 5vw;
+  //     letter-spacing: -0.2rem;
+  //   }
+  // }
+
+  .info-container {
+    width: 100%;
+    position: relative;
+    height: 75%;
+  }
+  .info-container::after {
+    font-family: "Font01";
+    text-align: center;
+    content: "contact : 010 7551 6005";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+  }
+
+  // .information-box {
+  //   padding: 1rem 0; // ✅ PC 기본 (기존 desktop)
+  //   @include m.mobile {
+  //     padding: 0;
+  //   }
+  // }
+
+  /* 뒷배경 이미지 */
+  .hero .back {
+    opacity: 0.7;
+  }
+
+  .hero .back::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 92%; // ✅ PC 기본 (기존 desktop과 동일)
+    bottom: 0;
+    background: var(--color-back);
+    border-radius: 0 10px 10px 10px;
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .hero.active .back::after {
+    transform: translateY(10vh);
+  }
+
+  .hero .back::before {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 10%; // ✅ PC 기본 (기존 desktop)
+    top: 0;
+    background: var(--color-back);
+    border-radius: 10px 100px 0 0; // ✅ PC 기본 (기존 desktop)
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+
+    @include m.mobile {
+      height: 15%;
+      border-radius: 10px 50px 0 0;
+    }
+  }
+
+  .hero.active .back::before {
+    transform: translateY(10vh);
+  }
+}
+// resume
+.resume {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @include m.tablet {
+    height: auto; // ✅ 섹션 높이 제한 해제
+    padding: 70px 0; // ✅ 위아래 여백
+    width: 90%;
+  }
+}
+
+.resume__contain {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+  @include m.tablet {
+    max-width: none;
+  }
+}
+
+// profile-container
+.profile-container {
+  width: 100%;
+
+  // ✅ PC: 7열 그리드
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+
+  // ✅ tablet/mobile: 1열(세로)로 전환
+  @include m.tablet {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+// ✅ 공통 타이포
+.resume h3 {
+  font-size: 0.7rem;
+  color: var(--color-point);
+  margin-bottom: 0.3rem;
+}
+.resume p {
+  display: inline-block;
+}
+.resume p,
+.resume dd,
+.resume a {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.profile-info__label,
+.profile-skills__label,
+.profile-experience__period,
+.profile-education__date {
+  margin-right: 0.5rem;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: var(--color-gray6);
+  margin-top: 0.25rem;
+
+  @include m.tablet {
+    margin-bottom: 2px; // ✅ 라벨/내용 세로 배치용
+  }
+}
+
+// name-box
+.name-box {
+  grid-column: 1 / 3;
+  grid-row: 1 / 4;
+
+  @include m.tablet {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    border-radius: 10px;
+    // text-align: left;
+    // grid-column: auto;
+    // grid-row: auto;
+  }
+
+  @include m.mobile {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+.name-box-picture-contain {
+  border-radius: 10px;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+
+  @include m.tablet {
+    width: 50%;
+    padding: 2rem;
+  }
+  @include m.mobile {
+    width: 100%;
+    padding: 2rem;
+    background: var(--color-1);
+  }
+}
+
+.name-box-picture {
+  width: 100%;
+  aspect-ratio: 1 / 1.2;
+  background: var(--color-text);
+
+  -webkit-mask-image: url("../img/me.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center;
+
+  mask-image: url("../img/me.png");
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: center;
+
+  @include m.tablet {
+    aspect-ratio: 1 / 1.1;
+  }
+}
+
+.name-box__name {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Font02";
+
+  @include m.tablet {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  @include m.mobile {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  // ✅ 기존 통블록에서 하던 absolute 해제/정렬 변경을 여기로 흡수
+  @include m.tablet {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 20px;
+  }
+}
+
+.font-txt {
+  font-size: 1.7rem;
+  line-height: 1.5;
+  font-family: "Font02";
+}
+
+.name {
+  color: var(--color-point);
+}
+
+.name-box__position {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  color: var(--color-gray4);
+  margin-top: 5px;
+
+  @include m.tablet {
+    white-space: normal; // ✅ 줄바꿈 허용
+  }
+}
+
+// profile-info
+.profile-info {
+  padding: 1rem 2rem;
+  grid-column: 3 / 5;
+  grid-row: 1 / 2;
+  background: var(--color-1);
+  border-radius: 10px;
+
+  @include m.tablet {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.profile-info__group {
+  display: flex;
+
+  @include m.tablet {
+    margin-right: 2rem;
+    justify-content: flex-start;
+    flex-direction: column; // ✅ 라벨/내용 세로로
+  }
+}
+
+.profile-info__list {
+  @include m.tablet {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+// profile-skills
+.profile-skills {
+  padding: 1rem 2rem;
+  background: var(--color-2);
+  grid-column: 5 / 8;
+  grid-row: 1 / 2;
+  border-radius: 20px 20px 0 20px;
+  text-align: end;
+
+  @include m.tablet {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    border-radius: 10px;
+    text-align: left;
+  }
+}
+
+.profile-skills__group {
+  display: flex;
+  justify-content: end;
+
+  @include m.tablet {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+}
+
+.profile-skills__desc {
+  white-space: nowrap;
+}
+
+// 장식용(hidden)
+.profile__hidden {
+  grid-column: 6 / 8;
+  grid-row: 2 / 3;
+  background: var(--color-2);
+  border-radius: 0 0 0 20px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 20px);
+    height: 100px;
+    display: block;
+    background: var(--color-2);
+    top: -25px;
+    left: -20px;
+    z-index: -2;
+  }
+
+  // ✅ tablet/mobile에서 장식 제거
+  @include m.tablet {
+    display: none;
+  }
+}
+
+// profile-links
+.profile-links {
+  padding: 1rem 2rem;
+  grid-column: 7 / 8;
+  grid-row: 3 / 4;
+  background: var(--color-2);
+  border-radius: 0 0 20px 20px;
+  text-align: end;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    width: calc(100% + 20px);
+    content: "";
+    display: block;
+    height: 100px;
+    background: var(--color-2);
+    top: -30px;
+    left: -20px;
+    z-index: -2;
+  }
+
+  @include m.tablet {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    border-radius: 10px;
+    text-align: left;
+
+    &::before {
+      display: none; // ✅ 장식 제거
+    }
+  }
+}
+
+.profile-links--item {
+  display: block;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-point);
+  }
+}
+
+// profile-experience
+.profile-experience {
+  padding: 1rem 2rem;
+  grid-column: 3 / 6;
+  grid-row: 2 / 3;
+  background: var(--color-3);
+  border-radius: 10px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: var(--color-bg);
+    top: -20px;
+    right: -20px;
+    border-radius: 10px;
+    z-index: -1;
+  }
+
+  @include m.tablet {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+
+    &::before {
+      display: none; // ✅ 장식 제거
+    }
+  }
+}
+
+// profile-education
+.profile-education {
+  padding: 1rem 2rem;
+  grid-column: 3 / 7;
+  grid-row: 3 / 4;
+  background: var(--color-1);
+  border-radius: 10px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: calc(100% + 20px);
+    height: 100%;
+    background: var(--color-bg);
+    top: -20px;
+    right: -20px;
+    z-index: -1;
+    border-radius: 10px;
+  }
+
+  @include m.tablet {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+
+    &::before {
+      display: none; // ✅ 장식 제거
+    }
+  }
+}
+
+// 경험/교육 날짜 라벨
+.profile-experience__period,
+.profile-education__date {
+  display: block;
+}
+
+// 유틸
+.grid-item-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include m.tablet {
+    display: block;
+  }
+}
+
+// PROJECT
+.project {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-title {
+  margin-bottom: 1rem;
+}
+
+.project-title-txt {
+  font-size: 1.2rem;
+  letter-spacing: 0rem;
+}
+
+.project-contents-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  @include m.mobile {
+    gap: 30px;
+  }
+}
+
+.project-contents-item {
+  flex: 0 0 calc(50% - 20px);
+  position: relative;
+
+  @include m.mobile {
+    flex: 0 0 100%;
+  }
+}
+
+.project-contents-item-link {
+  background: var(--color-1);
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.project-contents-item-back {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.project-contents-item-back-txt {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+
+  background: var(--color-point);
+  border-radius: 10px;
+  padding: 5px 20px;
+
+  color: var(--c-btn);
+  font-weight: 600;
+  font-size: 0.8rem;
+  box-shadow: 0 0 10px var(--shadow-soft);
+}
+
+.project-contents-item-desc {
+  text-align: center;
+  margin-top: 10px;
+
+  @include m.mobile {
+    text-align: start;
+  }
+}
+
+.project-contents-item-mp4,
+.project-contents-item-mp4--mobile {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  box-shadow: 0 0 10px var(--color-soft);
+
+  transform: scale(1);
+  transition: transform 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// 모바일 전용 클래스에서만 필요한 값은 여기만 남겨
+.project-contents-item-mp4--mobile {
+  padding-top: 20px;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.desc-txt {
+  margin-top: 5px;
+  display: block;
+  font-size: 0.95rem;
+  opacity: 0.5;
+  font-weight: 400;
+
+  @include m.mobile {
+    margin-top: 2px;
+    font-size: 0.85rem;
+  }
+}

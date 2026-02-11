@@ -1,0 +1,53 @@
+/* 라이트 모드 (배경 밝고, 카드가 더 어두운 톤) */
+:root {
+  --color-bg: #f7f8fa; /* 아주 밝고 깨끗 */
+  --color-bg-trans: #f7f8fa80;
+
+  --color-card: #eef1f4; /* 배경보다 한 단계 어둡게 */
+  --color-card50: #eef1f480;
+
+  --color-soft: #0000000a; /* 구분선/면 분리용 */
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+
+  --color-text: #121417;
+  --color-text-trans: #12141780;
+
+  --color-front: rgba(0, 0, 0, 0.22);
+  --color-back: #9aa3ad; /* 너무 진한 회색 말고 */
+
+  --color-point: #f4b740; /* 다크의 포인트 톤과 연결 */
+  --c-btn: #242424;
+
+  /* 서브 배경 스텝 (섹션/구분용) */
+  --color-1: #f2f4f7;
+  --color-2: #e7ebf0;
+  --color-3: #dde3ea;
+
+  --color-gray3: #12141730;
+  --color-gray4: #12141740;
+  --color-gray5: #12141750;
+  --color-gray6: #12141760;
+}
+
+/* 다크 모드 */
+[data-theme="dark"] {
+  --color-bg: #242424;
+  --color-bg-trans: #24242460;
+  --color-soft: #f5f5f510;
+  --color-text: #f5f5f5;
+  --color-text-trans: #f5f5f590;
+  --color-card: #313131;
+  --color-card50: #31313150;
+  --color-front: rgba(255, 255, 255, 0.3);
+  --color-back: #f5f5f5;
+  --color-point: #ebc03f;
+  --shadow-soft: rgba(255, 255, 255, 0.15);
+  --c-btn: #242424;
+  --color-1: #1e1e1e;
+  --color-2: #2a2a2a;
+  --color-3: #282828;
+  --color-gray3: #f5f5f530;
+  --color-gray4: #f5f5f540;
+  --color-gray5: #f5f5f550;
+  --color-gray6: #f5f5f560;
+}

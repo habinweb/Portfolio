@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <title>KIM HA BIN Portfolio</title>
+  </head>
+  <body class="main-page">
+    <header id="header">
+      <div class="header-box">
+        <a href="index.html">
+          <h1 class="tag">Portfolio</h1>
+        </a>
+        <nav class="menu">
+          <ul class="menu-box">
+            <li class="menu-title">
+              Menu
+              <ul class="sub-box">
+                <li class="sub-title">
+                  Project
+                  <ul class="sub-sub">
+                    <li class="sub-sub-a"><a href="">팀프로젝트</a></li>
+                    <li class="sub-sub-a"><a href="">반응형</a></li>
+                    <li class="sub-sub-a"><a href="">모바일</a></li>
+                    <li class="sub-sub-a"><a href="">사이드</a></li>
+                  </ul>
+                </li>
+                <li class="sub-title">
+                  Contact
+                  <ul class="sub-sub">
+                    <li class="sub-sub-a"><a href="">깃허브</a></li>
+                    <li class="sub-sub-a"><a href="">팀 깃허브</a></li>
+                    <li class="sub-sub-a"><a href="">메일</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                class="menu-title"
+                href="http://bhpo.dothome.co.kr/blog/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tech blog
+                <ul class="sub-box">
+                  <li class="sub-title-d">
+                    버튼을 클릭하시면 <br />
+                    다양한 시행착오가 포함된 <br />개발 노트로 이동합니다
+                  </li>
+                </ul>
+              </a>
+            </li>
+            <li class="menu-title aboutme">About me</li>
+            <li class="menu-title">
+              <button class="modeBtn">
+                <img class="light-icon" src="img/light_border.png" />
+                <img class="dark-icon" src="img/dark.png" />
+              </button>
+              <div class="indicator"></div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="hero-container">
+        <section class="hero">
+          <div class="front"></div>
+
+          <div class="profile-txt-box">
+            <!-- 앞면 -->
+            <div class="card-face front2">
+              <h2 class="profile">
+                ABOUT <br /><span class="profile-me">ME</span>
+              </h2>
+            </div>
+            <!-- 뒷면 -->
+            <div class="card-face back2">
+              <div class="profile-back-box">
+                <!-- 프로필 타이틀 텍스트+사진 -->
+                <div class="profile-back-title">
+                  <h3 class="profile-back">
+                    <span class="profile-me-back deco-icon-one">도전하는</span
+                    ><span class="profile-me-back deco-icon-two">퍼블리셔</span
+                    ><span class="profile-me-back deco-icon-three">김하빈</span>
+                  </h3>
+                </div>
+                <div class="picture">
+                  <img
+                    class="picture-img"
+                    src="img/drawing.png"
+                    alt="코딩하는 부엉이 그림"
+                  />
+                </div>
+                <div class="info-container"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="back"></div>
+        </section>
+      </div>
+
+      <!-- 두번째 페이지 -->
+      <section class="resume" id="resume">
+        <div class="resume__contain">
+          <div class="profile-container">
+            <div class="name-box">
+              <div class="name-box-picture-contain">
+                <div class="name-box-picture"></div>
+              </div>
+              <!-- <p>이렇게만 해도 다 된다!</p> -->
+              <h2 class="name-box__name">
+                <span class="font-txt"
+                  >고민하고 부딪히며<br />"왜(Why)"를 찾아내는 <br />
+                  <span class="name">김 하빈</span></span
+                >
+
+                <span class="name-box__position"
+                  >웹 퍼블리셔 Web Publisher</span
+                >
+              </h2>
+            </div>
+
+            <div class="profile-info grid-item-center">
+              <h3 class="profile-info__title">INFO</h3>
+              <dl class="profile-info__list">
+                <div class="profile-info__group">
+                  <dt class="profile-info__label">BIRTH</dt>
+                  <dd class="profile-info__desc">1998 - 04 - 27</dd>
+                </div>
+                <div class="profile-info__group">
+                  <dt class="profile-info__label">CONTACT</dt>
+                  <dd class="profile-info__desc">010-7551-6005</dd>
+                </div>
+                <div class="profile-info__group">
+                  <dt class="profile-info__label">EMAIL</dt>
+                  <dd class="profile-info__desc">habinkim0427@naver.com</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="profile-skills grid-item-center">
+              <h3 class="profile-skills__title">TECHNICAL SKILLS</h3>
+              <dl class="profile-skills__list">
+                <div class="profile-skills__group">
+                  <dt class="profile-skills__label">PUBLISHING</dt>
+                  <dd class="profile-skills__desc">
+                    HTML5 / CSS3 / SCSS / JavaScript / jQuery
+                  </dd>
+                </div>
+                <div class="profile-skills__group">
+                  <dt class="profile-skills__label">Design</dt>
+                  <dd class="profile-skills__desc">
+                    Figma / Photoshop / Illustrator
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <div class="profile__hidden" aria-hidden="true"></div>
+            <div class="profile-experience grid-item-center">
+              <h3 class="profile-experience__title">EXPERIENCE</h3>
+              <ul class="profile-experience__list">
+                <li class="profile-experience__item">
+                  <span class="profile-experience__period"
+                    >2023.01 – 2025.04 (2년 3개월)</span
+                  >
+                  <p class="profile-experience__content">
+                    주식회사 엔공구 | 마케팅팀 주임 디자이너
+                  </p>
+                </li>
+
+                <li class="profile-experience__item">
+                  <span class="profile-experience__period"
+                    >2021.03 – 2021.12 (10개월)</span
+                  >
+                  <p class="profile-experience__content">
+                    다옴 | 디자인팀 사원
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="profile-education grid-item-center">
+              <h3 class="profile-education__title">EDUCATION</h3>
+              <ul class="profile-education__list">
+                <li class="profile-education__item">
+                  <span class="profile-education__date">2025.05 - 2025.11</span>
+                  <p class="profile-education__content">
+                    신촌그린아카데미 UI/UX 웹퍼블리셔 & 프론트엔드 실무 과정수료
+                  </p>
+                </li>
+
+                <li class="profile-education__item">
+                  <span class="profile-education__date">2017.03 - 2021.02</span>
+                  <p class="profile-education__content">
+                    광주대학교 문예창작과 학사 졸업
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="profile-links grid-item-center">
+              <h3 class="profile-links__content">LINKS</h3>
+              <div class="profile-links--box">
+                <a href="" class="profile-links--item">github</a>
+                <a href="" class="profile-links--item">blog</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project">
+        <div class="project-title">
+          <h3 class="project-title-txt">Project</h3>
+        </div>
+        <div class="project-contents">
+          <!-- 프로젝트 리스트 -->
+          <ul class="project-contents-list">
+            <!-- 프로젝트1 -->
+            <li class="project-contents-item">
+              <a
+                class="project-contents-item-link"
+                target="_blank"
+                href="seongbuk_project.html"
+              >
+                <video
+                  class="project-contents-item-mp4"
+                  src="mp4/seongbuk_main.mp4"
+                  loop
+                  muted
+                  playsinline
+                ></video>
+              </a>
+              <div class="project-contents-item-back">
+                <p class="project-contents-item-back-txt">반응형</p>
+                <p class="project-contents-item-back-txt">접근성 준수</p>
+                <p class="project-contents-item-back-txt">Sass</p>
+              </div>
+              <div class="project-contents-item-desc">
+                <p class="project-contents-item-desc-txt">
+                  <strong class="strong"
+                    >성북문화재단 공공재단 사이트 리뉴얼 프로젝트</strong
+                  >
+                  <span class="desc-txt"
+                    >퍼블리싱 전반 담당 (PC·Tablet·Mobile)</span
+                  >
+                </p>
+              </div>
+            </li>
+            <!-- 프로젝트2 -->
+            <li class="project-contents-item">
+              <a
+                class="project-contents-item-link"
+                target="_blank"
+                href="movein_project.html"
+              >
+                <img
+                  class="project-contents-item-mp4"
+                  src="img/movein_main3.jpg"
+                  alt="movein project"
+                />
+              </a>
+              <div class="project-contents-item-back">
+                <p class="project-contents-item-back-txt">창작</p>
+                <p class="project-contents-item-back-txt">Git 기반 협업</p>
+              </div>
+              <div class="project-contents-item-desc">
+                <p class="project-contents-item-desc-txt">
+                  <strong class="strong"
+                    >창작 아카이브 플랫폼 MOVEIN 팀 프로젝트</strong
+                  >
+                  <span class="desc-txt">프로젝트 리드</span>
+                </p>
+              </div>
+            </li>
+            <!-- 프로젝트3 -->
+            <li class="project-contents-item">
+              <a
+                class="project-contents-item-link"
+                target="_blank"
+                href="seongbuk_project.html"
+              >
+                <video
+                  class="project-contents-item-mp4"
+                  src="mp4/shelter_main.mp4"
+                  loop
+                  muted
+                  playsinline
+                ></video>
+              </a>
+              <div class="project-contents-item-back">
+                <p class="project-contents-item-back-txt">반응형</p>
+                <p class="project-contents-item-back-txt">개인</p>
+              </div>
+              <div class="project-contents-item-desc">
+                <p class="project-contents-item-desc-txt">
+                  <strong class="strong"
+                    >종합유기견보호센터 사이트 리뉴얼 프로젝트</strong
+                  >
+                  <span class="desc-txt"
+                    >퍼블리싱 전반 담당 (PC·Tablet·Mobile)</span
+                  >
+                </p>
+              </div>
+            </li>
+            <!-- 프로젝트4 -->
+            <li class="project-contents-item">
+              <a
+                class="project-contents-item-link"
+                target="_blank"
+                href="seongbuk_project.html"
+              >
+                <video
+                  class="project-contents-item-mp4"
+                  src="mp4/seongbuk_main.mp4"
+                  loop
+                  muted
+                  playsinline
+                ></video>
+              </a>
+              <div class="project-contents-item-back">
+                <p class="project-contents-item-back-txt">반응형</p>
+                <p class="project-contents-item-back-txt">정적 사이트 빌드</p>
+              </div>
+              <div class="project-contents-item-desc">
+                <p class="project-contents-item-desc-txt">
+                  <strong class="strong"
+                    >개인 퍼블리싱 학습 아카이브 블로그</strong
+                  >
+                  <span class="desc-txt">퍼블리싱 전반 담당 (PC·Mobile)</span>
+                </p>
+              </div>
+            </li>
+            <!-- 프로젝트5 -->
+            <li class="project-contents-item">
+              <a
+                class="project-contents-item-link"
+                target="_blank"
+                href="seongbuk_project.html"
+              >
+                <video
+                  class="project-contents-item-mp4"
+                  src="mp4/seongbuk_main.mp4"
+                  loop
+                  muted
+                  playsinline
+                ></video>
+              </a>
+              <div class="project-contents-item-back">
+                <p class="project-contents-item-back-txt">모바일</p>
+                <p class="project-contents-item-back-txt">UX 개선</p>
+              </div>
+              <div class="project-contents-item-desc">
+                <p class="project-contents-item-desc-txt">
+                  <strong class="strong"
+                    >벌크커피 UXUI 개선 모바일 페이지 리뉴얼</strong
+                  >
+                  <span class="desc-txt">퍼블리싱 전반 담당 (PC·Mobile)</span>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- fixed-->
+      <button
+        class="btn-top"
+        id="btnTop"
+        type="button"
+        aria-label="맨 위로 이동"
+      >
+        <span class="top-txt">↑</span>
+      </button>
+    </main>
+    <script src="js/mode.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/fullpage.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
