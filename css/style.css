@@ -625,7 +625,7 @@ body {
 @media (max-width: 767px) {
   .main-page .profile {
     letter-spacing: -0.08rem;
-    top: 7px;
+    top: 5px;
     font-size: 16.5vw;
   }
 }
@@ -679,6 +679,11 @@ body {
 @media (max-width: 1279px) {
   .main-page .profile-me {
     padding-top: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .main-page .profile-me {
+    padding-top: 1rem;
   }
 }
 .main-page .card-face.back2 {
@@ -759,14 +764,14 @@ body {
   bottom: -50px;
   left: -5px;
   position: absolute;
-  background: url("/img/deco_fire.png") no-repeat center;
+  background: url("../img/deco_fire.png") no-repeat center;
   background-size: contain;
 }
 @media (max-width: 1279px) {
   .main-page .deco-icon-one::before {
     width: 2.5rem;
     height: 2.5rem;
-    background: url("/img/deco_fire.png") no-repeat center;
+    background: url("../img/deco_fire.png") no-repeat center;
     background-size: contain;
     bottom: -35px;
     left: -5px;
@@ -774,12 +779,7 @@ body {
 }
 @media (max-width: 767px) {
   .main-page .deco-icon-one::before {
-    width: 1.5rem;
-    height: 1.5rem;
-    background: url("/img/deco_fire.png") no-repeat center;
-    background-size: contain;
-    top: 8px;
-    left: 65%;
+    display: none;
   }
 }
 .main-page .deco-icon-one::after {
@@ -790,14 +790,14 @@ body {
   bottom: -50px;
   left: 45px;
   position: absolute;
-  background: url("/img/deco_twinkle.png") no-repeat center;
+  background: url("../img/deco_twinkle.png") no-repeat center;
   background-size: contain;
 }
 @media (max-width: 1279px) {
   .main-page .deco-icon-one::after {
     width: 2.5rem;
     height: 2.5rem;
-    background: url("/img/deco_twinkle.png") no-repeat center;
+    background: url("../img/deco_twinkle.png") no-repeat center;
     background-size: contain;
     bottom: -35px;
     left: 40px;
@@ -805,12 +805,7 @@ body {
 }
 @media (max-width: 767px) {
   .main-page .deco-icon-one::after {
-    width: 1.5rem;
-    height: 1.5rem;
-    background: url("/img/deco_twinkle.png") no-repeat center;
-    background-size: contain;
-    top: 8px;
-    left: 80%;
+    display: none;
   }
 }
 .main-page .deco-icon-two {
@@ -824,14 +819,14 @@ body {
   bottom: -50px;
   left: 0;
   position: absolute;
-  background: url("/img/deco_brain.png") no-repeat center;
+  background: url("../img/deco_brain.png") no-repeat center;
   background-size: contain;
 }
 @media (max-width: 1279px) {
   .main-page .deco-icon-two::before {
     width: 2.5rem;
     height: 2.5rem;
-    background: url("/img/deco_brain.png") no-repeat center;
+    background: url("../img/deco_brain.png") no-repeat center;
     background-size: contain;
     bottom: -35px;
     left: 0;
@@ -839,12 +834,7 @@ body {
 }
 @media (max-width: 767px) {
   .main-page .deco-icon-two::before {
-    width: 1.5rem;
-    height: 1.2rem;
-    bottom: 8px;
-    left: 65%;
-    background: url("/img/deco_brain.png") no-repeat center;
-    background-size: contain;
+    display: none;
   }
 }
 .main-page .deco-icon-two::after {
@@ -855,14 +845,14 @@ body {
   bottom: -50px;
   left: 50px;
   position: absolute;
-  background: url("/img/deco_tool.png") no-repeat center;
+  background: url("../img/deco_tool.png") no-repeat center;
   background-size: contain;
 }
 @media (max-width: 1279px) {
   .main-page .deco-icon-two::after {
     width: 2.5rem;
     height: 2.4rem;
-    background: url("/img/deco_tool.png") no-repeat center;
+    background: url("../img/deco_tool.png") no-repeat center;
     background-size: contain;
     bottom: -35px;
     left: 45px;
@@ -870,12 +860,7 @@ body {
 }
 @media (max-width: 767px) {
   .main-page .deco-icon-two::after {
-    width: 1.5rem;
-    height: 1.5rem;
-    bottom: 6px;
-    left: 82%;
-    background: url("/img/deco_tool.png") no-repeat center;
-    background-size: contain;
+    display: none;
   }
 }
 .main-page .deco-icon-three {
@@ -889,14 +874,14 @@ body {
   bottom: -50px;
   right: 0;
   position: absolute;
-  background: url("/img/deco_spaceship.png") no-repeat center;
+  background: url("../img/deco_spaceship.png") no-repeat center;
   background-size: contain;
 }
 @media (max-width: 1279px) {
   .main-page .deco-icon-three::after {
     width: 2.5rem;
     height: 2.5rem;
-    background: url("/img/deco_spaceship.png") no-repeat center;
+    background: url("../img/deco_spaceship.png") no-repeat center;
     background-size: contain;
     bottom: -35px;
     right: 0px;
@@ -904,11 +889,7 @@ body {
 }
 @media (max-width: 767px) {
   .main-page .deco-icon-three::after {
-    width: 1.5rem;
-    height: 1.5rem;
-    bottom: 6px;
-    background: url("/img/deco_spaceship.png") no-repeat center;
-    background-size: contain;
+    display: none;
   }
 }
 .main-page .picture {
@@ -943,12 +924,17 @@ body {
 }
 .main-page .info-container::after {
   font-family: "Font01";
-  text-align: center;
-  content: "contact : 010 7551 6005";
+  text-align: end;
+  content: "Contact : 010 7551 6005";
   position: absolute;
   right: 0;
   bottom: 0;
   width: 30%;
+}
+@media (max-width: 767px) {
+  .main-page .info-container::after {
+    display: none;
+  }
 }
 .main-page {
   /* 뒷배경 이미지 */
@@ -1815,8 +1801,8 @@ body {
 }
 .sub-page .sec-title {
   letter-spacing: -0.01rem;
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 700;
   padding-bottom: 0.5rem;
 }
 .sub-page .sec-title.top {
@@ -1836,18 +1822,30 @@ body {
     height: 300px;
   }
 }
+.sub-page .main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.sub-page .main-img.plus {
+  object-fit: contain;
+  background: var(--color-3);
+  padding: 1rem;
+}
 .sub-page .main-img--team {
   position: absolute;
-  left: -45%;
-  top: -50%;
-  width: 150%;
+  left: -15%;
+  top: -25%;
+  width: 110%;
   display: block;
   object-position: center;
 }
 @media (max-width: 767px) {
   .sub-page .main-img--team {
-    left: -45%;
-    top: -30%;
+    width: 140%;
+    left: -35%;
+    top: -25%;
   }
 }
 .sub-page .overview-img-box {
@@ -1891,6 +1889,9 @@ body {
 .sub-page .point-txt {
   color: var(--color-text-trans);
   text-align: justify;
+}
+.sub-page .point-txt.--team {
+  color: #8670ff;
 }
 .sub-page .role-sec {
   padding: 0;

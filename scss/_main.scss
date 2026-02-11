@@ -164,7 +164,7 @@ body {
     }
     @include m.mobile {
       letter-spacing: -0.08rem;
-      top: 7px;
+      top: 5px;
       font-size: 16.5vw;
     }
   }
@@ -221,6 +221,9 @@ body {
     @include m.tablet {
       padding-top: 1.5rem;
     }
+    @include m.mobile {
+      padding-top: 1rem;
+    }
   }
 
   // 카드 뒷부분 텍스트
@@ -276,7 +279,7 @@ body {
 
   .profile-me-back {
     color: #242424;
-    font-size: 3rem; // ✅ PC 기본 (기존 desktop)
+    font-size: 3rem;
 
     @include m.tablet {
       font-size: 4.3vw;
@@ -296,23 +299,18 @@ body {
     bottom: -50px;
     left: -5px;
     position: absolute;
-    background: url("/img/deco_fire.png") no-repeat center;
+    background: url("../img/deco_fire.png") no-repeat center;
     background-size: contain;
     @include m.tablet {
       width: 2.5rem;
       height: 2.5rem;
-      background: url("/img/deco_fire.png") no-repeat center;
+      background: url("../img/deco_fire.png") no-repeat center;
       background-size: contain;
       bottom: -35px;
       left: -5px;
     }
     @include m.mobile {
-      width: 1.5rem;
-      height: 1.5rem;
-      background: url("/img/deco_fire.png") no-repeat center;
-      background-size: contain;
-      top: 8px;
-      left: 65%;
+      display: none;
     }
   }
   .deco-icon-one::after {
@@ -323,23 +321,18 @@ body {
     bottom: -50px;
     left: 45px;
     position: absolute;
-    background: url("/img/deco_twinkle.png") no-repeat center;
+    background: url("../img/deco_twinkle.png") no-repeat center;
     background-size: contain;
     @include m.tablet {
       width: 2.5rem;
       height: 2.5rem;
-      background: url("/img/deco_twinkle.png") no-repeat center;
+      background: url("../img/deco_twinkle.png") no-repeat center;
       background-size: contain;
       bottom: -35px;
       left: 40px;
     }
     @include m.mobile {
-      width: 1.5rem;
-      height: 1.5rem;
-      background: url("/img/deco_twinkle.png") no-repeat center;
-      background-size: contain;
-      top: 8px;
-      left: 80%;
+      display: none;
     }
   }
   .deco-icon-two {
@@ -353,23 +346,18 @@ body {
     bottom: -50px;
     left: 0;
     position: absolute;
-    background: url("/img/deco_brain.png") no-repeat center;
+    background: url("../img/deco_brain.png") no-repeat center;
     background-size: contain;
     @include m.tablet {
       width: 2.5rem;
       height: 2.5rem;
-      background: url("/img/deco_brain.png") no-repeat center;
+      background: url("../img/deco_brain.png") no-repeat center;
       background-size: contain;
       bottom: -35px;
       left: 0;
     }
     @include m.mobile {
-      width: 1.5rem;
-      height: 1.2rem;
-      bottom: 8px;
-      left: 65%;
-      background: url("/img/deco_brain.png") no-repeat center;
-      background-size: contain;
+      display: none;
     }
   }
   .deco-icon-two::after {
@@ -380,23 +368,18 @@ body {
     bottom: -50px;
     left: 50px;
     position: absolute;
-    background: url("/img/deco_tool.png") no-repeat center;
+    background: url("../img/deco_tool.png") no-repeat center;
     background-size: contain;
     @include m.tablet {
       width: 2.5rem;
       height: 2.4rem;
-      background: url("/img/deco_tool.png") no-repeat center;
+      background: url("../img/deco_tool.png") no-repeat center;
       background-size: contain;
       bottom: -35px;
       left: 45px;
     }
     @include m.mobile {
-      width: 1.5rem;
-      height: 1.5rem;
-      bottom: 6px;
-      left: 82%;
-      background: url("/img/deco_tool.png") no-repeat center;
-      background-size: contain;
+      display: none;
     }
   }
   .deco-icon-three {
@@ -410,22 +393,18 @@ body {
     bottom: -50px;
     right: 0;
     position: absolute;
-    background: url("/img/deco_spaceship.png") no-repeat center;
+    background: url("../img/deco_spaceship.png") no-repeat center;
     background-size: contain;
     @include m.tablet {
       width: 2.5rem;
       height: 2.5rem;
-      background: url("/img/deco_spaceship.png") no-repeat center;
+      background: url("../img/deco_spaceship.png") no-repeat center;
       background-size: contain;
       bottom: -35px;
       right: 0px;
     }
     @include m.mobile {
-      width: 1.5rem;
-      height: 1.5rem;
-      bottom: 6px;
-      background: url("/img/deco_spaceship.png") no-repeat center;
-      background-size: contain;
+      display: none;
     }
   }
 
@@ -450,41 +429,6 @@ body {
       width: 100%;
     }
   }
-  // .profile-back-more {
-  //   font-size: 3rem; // ✅ PC 기본 (기존 desktop)
-  //   width: 100%;
-  //   display: flex;
-  //   flex-direction: row; // ✅ PC 기본
-  //   justify-content: space-between;
-  //   margin-top: -2rem; // ✅ PC 기본
-  //   position: absolute;
-
-  //   @include m.tablet {
-  //     margin-top: -1.5rem;
-  //     font-size: 4.3vw;
-  //   }
-  //   @include m.mobile {
-  //     margin-top: 0rem;
-  //     top: 0;
-  //     right: 0px;
-  //     font-size: 5vw;
-  //     flex-direction: column;
-  //     align-items: end;
-  //   }
-  // }
-
-  // .profile-me-back-more {
-  //   font-size: 3rem; // ✅ PC 기본 (기존 desktop에서만 있었음)
-  //   text-shadow: 1px 2px 5px #31313120;
-
-  //   @include m.tablet {
-  //     font-size: inherit;
-  //   }
-  //   @include m.mobile {
-  //     font-size: 5vw;
-  //     letter-spacing: -0.2rem;
-  //   }
-  // }
 
   .info-container {
     width: 100%;
@@ -493,20 +437,16 @@ body {
   }
   .info-container::after {
     font-family: "Font01";
-    text-align: center;
-    content: "contact : 010 7551 6005";
+    text-align: end;
+    content: "Contact : 010 7551 6005";
     position: absolute;
     right: 0;
     bottom: 0;
     width: 30%;
+    @include m.mobile {
+      display: none;
+    }
   }
-
-  // .information-box {
-  //   padding: 1rem 0; // ✅ PC 기본 (기존 desktop)
-  //   @include m.mobile {
-  //     padding: 0;
-  //   }
-  // }
 
   /* 뒷배경 이미지 */
   .hero .back {
