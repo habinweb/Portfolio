@@ -355,7 +355,7 @@ dd {
 }
 .sub-box .sub-title:hover {
   transform: scale(1.05);
-  color: black;
+  color: var(--color-point);
 }
 .sub-box .sub-title:last-child {
   margin-bottom: 0;
@@ -390,6 +390,7 @@ dd {
 .sub-sub .sub-sub-a > a:hover {
   font-weight: 700;
   color: var(--color-point);
+  text-decoration: underline;
 }
 @media (max-width: 767px) {
   .sub-sub {
@@ -1491,6 +1492,113 @@ body {
   .desc-txt {
     margin-top: 2px;
     font-size: 0.85rem;
+  }
+}
+
+.site-footer {
+  background: var(--color-1);
+}
+
+.footer-inner {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .footer-inner {
+    align-items: start;
+  }
+}
+
+.footer-inner-sec {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  width: 100%;
+  display: block;
+  border-radius: 100px;
+}
+
+.footer-mark {
+  background: var(--color-text-trans);
+  width: 65px;
+  height: 65px;
+  -webkit-mask-image: url("../img/deco_spaceship.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center;
+  mask-image: url("../img/deco_twinkle.png");
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: center;
+}
+
+.footer-desc {
+  color: var(--color-text-trans);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  text-align: end;
+}
+
+.footer-nav-contain {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .footer-nav-contain {
+    flex-direction: column;
+  }
+}
+
+.footer-nav {
+  display: flex;
+  margin-left: auto;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+  padding: 0.3rem 0;
+  border-radius: 50px;
+}
+
+.footer-link {
+  font-size: 0.8rem;
+  color: var(--color-gray6);
+}
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-bottom {
+  margin-left: auto;
+}
+
+.footer-copy {
+  color: var(--color-gray6);
+}
+
+#project {
+  scroll-margin-top: 120px;
+  margin-bottom: 5rem;
+}
+
+#about {
+  scroll-margin-top: 50px;
+}
+@media (max-width: 767px) {
+  #about {
+    scroll-margin-top: 120px;
   }
 }
 

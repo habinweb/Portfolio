@@ -190,7 +190,7 @@ dd {
 
     &:hover {
       transform: scale(1.05);
-      color: black;
+      color: var(--color-point);
     }
 
     &:last-child {
@@ -226,6 +226,7 @@ dd {
     & > a:hover {
       font-weight: 700;
       color: var(--color-point);
+      text-decoration: underline;
     }
   }
 
