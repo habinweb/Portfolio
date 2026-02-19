@@ -596,6 +596,12 @@
   aspect-ratio: 16/9;
   border-radius: 10px;
 }
+.results-img.toy {
+  width: calc(100% - 1rem);
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+}
 .results-img.--flex-layout {
   position: relative;
   width: 100%;
