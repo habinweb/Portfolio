@@ -842,3 +842,8 @@
 .contact .last::after {
   content: "";
 }
+.mobile-none {
+  @include m.tablet {
+    display: none !important;
+  }
+}

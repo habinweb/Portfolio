@@ -2450,4 +2450,10 @@ body {
   content: "";
 }
 
+@media (max-width: 1279px) {
+  .mobile-none {
+    display: none !important;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
