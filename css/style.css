@@ -1962,11 +1962,13 @@ body {
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   margin-bottom: 1rem;
+  position: relative;
 }
 .sub-page .overview-img-one,
 .sub-page .overview-img-two {
   width: 100%;
   border-radius: 10px;
+  position: relative;
   object-fit: contain;
 }
 .sub-page .overview-img-one {
@@ -2263,6 +2265,11 @@ body {
   position: relative;
   z-index: 1;
   background: var(--color-1);
+}
+
+.web-img-box.bulk {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .web-img {
